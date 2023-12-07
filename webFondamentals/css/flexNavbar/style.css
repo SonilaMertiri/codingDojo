@@ -1,0 +1,25 @@
+.nav {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(46, 45, 45);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+.nav-links li {
+    display: inline;
+}
+a{
+    color: white;
+    text-decoration: none;
+    margin: 0px 25px;
+}
+.btn{
+    color: white;
+    background-color: rgb(64, 193, 193);
+    border: 2px solid black;
+    box-shadow: 4px 3px black ;
+    padding: 5px 10px;
+    font-size: medium;
+}

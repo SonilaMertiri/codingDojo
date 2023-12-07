@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Content</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Programer Name</h1>
+    <img src="./img/profilepic.png" alt="profile picture" width="100" height="100">
+    <br>
+
+    <div>
+        <img src="./img/githubpic.png" alt="github picture" width="40" height="40">
+        <a href="#">my github</a>
+
+        <img src="./img/linkedinpic.png" alt="linkedin picture" width="40" height="40">
+        <a href="#">my linkedin</a>
+
+        <img src="./img/emailpic.png" alt="email picture" width="40" height="40">
+        <a href="#">my email</a>
+    </div>
+
+    <div>
+        <h3>Technologies</h3>
+        <!-- Kam ber nje stilizim te jashtem per tabelen sepse stilizimi inline me jepte error ne html validator si version jo i perdor me. -->
+        <table>
+            <tr>
+                <th>Front-End</th>
+                <th>Python</th>
+                <th>JavaScript</th>
+                <th>Database</th>
+                <th>Concepts</th>
+            </tr>
+
+            <tr>
+                <td>HTML-5</td>
+                <td>Django</td>
+                <td>Express</td>
+                <td>MySQL</td>
+                <td>AJAX</td>
+            </tr>
+
+            <tr>
+                <td>CSS3</td>
+                <td>Flask</td>
+                <td>Mongose</td>
+                <td>MongoDb</td>
+                <td>OOP</td>
+            </tr>
+
+            <tr>
+                <td>Bootstrap</td>
+                <td>Unittest</td>
+                <td>React</td>
+                <td></td>
+                <td>REST</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h3>Social Snakes</h3>
+        <img src="./img/tagpic.png" alt="social snakes photo" width="60" height="60">
+        <p>Social Media App made in Python - <a href="#">code</a>|<a href="#">deployed</a></p>
+    </div>
+
+    <h3>Contact Me</h3>
+    <form action="#" method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+        <br><br>
+
+        <div>
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" cols="20" rows="5"></textarea>
+        </div>
+        <input type="submit" value="Send Message">
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+h1, h2, h3{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1%;
+}
+
+h1{
+    color: white;
+    background-color: black;
+    padding-left: 2%;
+}
+
+h2{
+    color:white ;
+    background-color: rebeccapurple;
+    text-align: center;
+    font-style: italic;
+}
+
+h3{
+    text-align: right;
+    text-decoration: underline;
+    background-color: aqua;
+}

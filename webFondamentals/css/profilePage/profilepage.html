@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Profile</h1>
+        <ul class="nav-links">
+            <li >Home</li>
+            <li id="active">My Profile</li>
+            <li>Find Connections</li>
+        </ul>
+        <button>Sign Out</button>
+    </header>
+
+    <main>
+        <div class="display">
+            <div class="user-profile flex2 margL border marT">
+                <span class="userHeader"></span>
+                <img class="photoProfile profPossition" src="./img/jane-m.jpg" alt="Jane Photo">
+                <div class="profPossition">
+                    <h1 >Jane Doe</h1>
+                    <h3 class="marT"><img class="iconA" src="./img/map-marker.png" alt="location"> Seatle</h3>
+                    <p class="marT">Developer | Enginner | Problem Solver</p>
+                    <p>Master of shadows and the Internet</p>
+                    <img class="iconB marT" src="./img/gear.png" alt="seting icon">
+                    <a class="ancor1" href="#">edit profile</a>
+                </div>
+            </div>
+
+            <div class="border flex1 margR profPossition">
+                <div class="display bColor justify">
+                    <p class="circleColor1 displayF margL">2</p>
+                    <h4>Conection Request</h4>
+                </div>
+                <div class="displayF marT">
+                    <img class="photoProfile pSize margL" src="./img/todd-s.jpg" alt="Todd Photo" >
+                    <p>Todd E</p>
+                    <img class="icon" src="./img/accept-circle.png" alt="accept">
+                    <img class="icon" src="./img/close-circle.png" alt="close">
+                </div>
+                <div class="displayF marB marT">
+                    <img class="photoProfile pSize margL" src="./img/phil-s.jpg" alt="Phil Photo">
+                    <p>Phil K</p>
+                    <img class="icon" src="./img/accept-circle.png" alt="accept">
+                    <img class="icon" src="./img/close-circle.png" alt="close">
+                </div>
+            </div>
+        </div>
+
+        <div class="display marB row2 ">
+            <div class="margL flex2 border marB ">
+                <h4 class="bColor eduContent">Educatin</h4>
+                <h3 class="eduContent marT">Coding Dojo - Full Stack Bootcamp</h3>
+                <p class="eduContent marT pgrey">Dec 2019 - Mar 2020</p>
+                <p class="eduContent marB marT">Triple black belt in Python, MERN and C# ... </p>
+            </div>
+            
+            <div class="border flex1 margR profPossition">
+                <h4 class="bColor displayF "><span class="circleColor2 displayF display margL">500+</span> Your Connections</h4>
+                <p class="displayF marT"><img class="photoProfile pSize" src="./img/adrien-s.jpg" alt="Adrien Photo"> Adrien D</p>
+                <p class="displayF marT"><img class="photoProfile pSize" src="./img/anne-s.jpg" alt="Anne Photo"> Anne J</p>
+                <p class="displayF marT"><img class="photoProfile pSize" src="./img/alayne-s.jpg" alt="Alayne Photo"> Alayne T</p>
+                <p class="displayF marT"><img class="photoProfile pSize" src="./img/arry-s.jpg" alt="Arry Photo"> Arry Y</p>
+                <a class="marT heightV border displayF" href="#">View More</a>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

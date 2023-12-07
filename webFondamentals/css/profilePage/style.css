@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 7px 150px;
+}
+.nav-links li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0px 25px;
+}
+ul li {
+    color: rgb(167, 165, 165);
+}
+#active{
+    color: white;
+}
+ul{
+    padding-right: 30%;
+}
+button{
+    background-color:rgb(88, 185, 185);
+    color: white;
+    padding: 3px 20px;
+    font-size: medium;
+}
+
+
+
+.display{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.border{
+    border: 2px solid gray;
+}
+.flex1{
+    flex:1
+}
+.flex2{
+    flex:2
+}
+.photoProfile{
+    border-radius: 50%;
+    width: 120px;
+
+}
+
+.userHeader{
+    background-color: rgb(88, 185, 185);
+    width: auto;
+    padding: 50px;
+    display: block;
+}
+.profPossition{
+    position: relative;
+    bottom: 70px ;
+    left: 40px;
+}
+.ancor1 {
+margin-bottom: 10px;
+margin-left: 5px;
+margin-top: -3px;
+}
+
+
+.pSize{
+    width: 60px;
+}
+.icon{
+    width: 30px;
+}
+.iconA{
+    width: 12px;
+}
+.iconB{
+    width: 18px;
+}
+.margL{
+    margin-left:14%;
+}
+.margR{
+    margin-right:17%;
+}
+.marT{
+    margin-top: 20px;
+}
+.marB{
+    margin-bottom: 30px;
+}
+.bColor{
+    background-color: rgb(37, 36, 36);
+    color: white;
+    height: 50px;
+}
+.circleColor1{
+    background-color: rgb(158, 157, 157);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;}
+
+.circleColor2{
+    background-color: rgb(158, 157, 157);
+    width: 50px;
+    height: 30px;
+    border-radius: 50%;
+}
+.displayF{
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+}
+.justify{
+    justify-content: space-around;
+}
+
+.heightV{
+    height:30px;
+}
+.fContent{
+position: relative;
+top: 30px;
+left: 20px;
+}
+.eduContent{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.row2{
+    position: relative;
+    bottom: 55px;
+}
+.pgrey{
+    color: rgb(167, 165, 165);
+    font-size: 18px;
+}
+
