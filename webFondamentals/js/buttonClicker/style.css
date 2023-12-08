@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin-left: 25%;
+    margin-right: 25% ;
+}
+.d-inline-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.input{
+    padding: 5px 10px;
+    padding-right: 10%;
+}
+.align{
+    align-items: center;
+}
+.pad20{
+    padding: 7px 10px;
+}
+.navi{
+    background-color: rgb(157, 155, 155);
+}
+.button1{
+    color: white;
+    background-color: blue;
+    padding: 6px 15px;
+}
+.borderButton{
+    border: 2px solid black;
+    box-shadow: 3px 3px 6px black;
+}
+.likesButton{
+    background-color: rgb(244, 192, 96);
+    padding: 3px 6px;
+}
+.addButton{
+    background-color: rgb(99, 181, 99);
+    padding: 3px 8px;
+}
+.border{
+    border: 2px solid black;
+}
+.marT{
+    margin-top: 25px;
+}
+.lineHeigh{
+    line-height: 1.5;
+}
+.width20{
+    width: 65%;
+    height: auto;
+}
+.width10{
+    width: 25%;
+    height: 30%;
+}
+h3, span{
+    font-style: italic;
+}
+.padR{
+    padding-right: 30px;
+}
