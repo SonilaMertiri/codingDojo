@@ -1,0 +1,60 @@
+body{
+    padding-left: 27%;
+    padding-right: 27%;
+}
+h1 {
+    color: white;
+    background-color: rgb(13, 12, 12);
+    padding: 10px;
+}
+h2 {
+    margin-left: 40%;
+}
+h3 {
+    font-size: 20px;
+}
+.border {
+    border: 2px solid black;
+    padding-left: 10px;
+}
+.displayF {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button {
+    background-color: rgb(234, 181, 83);
+    border: 2 px solid black;
+    box-shadow: 3px 3px 3px;
+    padding:5px 10px;
+    font-weight: bold;
+}
+.box1{
+    width: 25%;
+    height: 30%;
+    line-height: 2;
+}
+.box2{
+    line-height: 2;
+    padding: 10px;
+}
+img {
+    width: 40%;
+    position: relative;
+    left: 40px;
+    margin-top: 7px;
+}
+.linkProfile{
+    position: relative;
+    top: 20px;
+    right: 45px;
+}
+.marB {
+margin-bottom: 51%;
+}
+.marT {
+    margin-top: 10px;
+}
+.marL {
+    margin-left: 25px;
+}

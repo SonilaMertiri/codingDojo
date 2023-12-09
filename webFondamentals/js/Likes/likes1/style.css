@@ -1,0 +1,15 @@
+.border{
+    border: 2px solid black;
+    width: 27%;
+    padding: 10px 20px;
+}
+.displayF{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button{
+    padding: 4px 7px;
+    background-color: rgb(243, 193, 98);
+    box-shadow: 3px 3px 3px;
+}
