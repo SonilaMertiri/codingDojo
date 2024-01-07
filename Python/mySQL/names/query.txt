@@ -1,0 +1,9 @@
+SELECT * FROM names;
+INSERT INTO names (name) VALUES ('Sonila');
+SELECT * FROM names;
+INSERT INTO names (name) VALUES ('Ana'), ('Ledina'), ('Paola');
+SELECT * FROM names;
+UPDATE names SET name = 'Megi' WHERE id = 4;
+SELECT * FROM names;
+DELETE FROM names WHERE id = 6;
+SELECT * FROM names;
