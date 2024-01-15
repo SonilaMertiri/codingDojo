@@ -1,0 +1,27 @@
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.counter{
+    display: block;
+    margin-left: 30%;
+    color: white;
+
+}
+h2{ margin-left: 50px;}
+
+.all{
+    width: 20%;
+    height: auto;
+    background-color: rgb(199, 85, 199);
+    margin: 10px;
+    padding: 10px;
+    margin-left: 35%;
+}
+.color{
+    color: white;
+    background-color: rgb(216, 216, 76);
+    border: none;
+    padding: 7px;
+}
