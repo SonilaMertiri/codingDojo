@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container col-4 bg-dark p-4">
+        <h2 class="text-warning">Dojo Survey</h2>
+        <form method="post" action="/">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label text-white">Name:</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="dojolocation" class="form-label text-white">Dojo Location:</label>
+                <!-- <input type="text" class="form-control" id="dojolocation" name="dojolocation" placeholder="Your Dojo Location"> -->
+                <select class="form-control" id="dojolocation" name="dojolocation">
+                    <option value="tirane">Tirane</option>
+                    <option value="durres">Durres</option>
+                    <option value="elbasan">Elbasan</option>
+                    <option value="korce">Korce</option>
+                    <option value="vlore">Vlore</option>
+                    <option value="shkoder">Shkoder</option>
+                    <option value="peshkopi">Peshkopi</option>
+                    <option value="tepelene">Tepelene</option>
+                    <option value="sarande">Sarande</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="favoritelanguage" class="form-label text-white">Favorite Language:</label>
+                <!-- <input type="text" class="form-control" id="favoritelanguage" name="favoritelanguage" placeholder="Your Favorite Language"> -->
+                <select class="form-control" id="favoritelanguage" name="favoritelanguage">
+                    <option value="python">Python</option>
+                    <option value="javascript">Java Script</option>
+                    <option value="c#">C#</option>
+                    <option value="java">Java</option>
+                    <option value="c++">C++</option>
+                </select>
+            </div>
+            <div>
+                <label for="comment" class="form-label text-white mt-3">Comment:</label>
+                <textarea name="comment" id="comment" class="form-control" cols="30" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning mt-4">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
