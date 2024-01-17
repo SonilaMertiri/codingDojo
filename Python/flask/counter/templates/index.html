@@ -13,10 +13,10 @@
         <h2>{{ counter }}</h2>
     </div>
     <div class="flex">
-        <form action="{{url_for('increment_counter')}}" method="post">
+        <form action='/increment' method="post">
             <button class="color" type="submit">Add 2</button>
         </form>
-        <form action="{{url_for('reset_counter')}}" method="post">
+        <form action='/reset' method="post">
             <button class="color" type="submit">Reset</button>
         </form>
     </div>

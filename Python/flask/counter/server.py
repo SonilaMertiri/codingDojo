@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, request, url_for
+from flask import Flask, render_template, session, redirect
 app= Flask(__name__)
 
 app.secret_key = 'silver_spoon'
@@ -12,17 +12,17 @@ def counter_index():
 @app.route('/destroy')
 def destroy_session():
     session.clear()
-    return redirect(url_for('counter_index'))
+    return redirect('/')
 
 @app.route('/increment', methods=['POST'])
 def increment_counter():
     session['counter']= session.get('counter',0)+1
-    return redirect(url_for('counter_index'))
+    return redirect('/')
 
 @app.route('/reset', methods=['POST'])
 def reset_counter():
     session['counter']= 0
-    return redirect(url_for('counter_index'))
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
