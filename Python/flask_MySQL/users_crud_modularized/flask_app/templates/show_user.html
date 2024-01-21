@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show User Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-md-3 border mt-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <h2>{{user.first_name}} Details</h2>
+            <a href="/">Home</a>
+        </div>
+        <!-- <p><strong>ID:</strong> {{ user.id }}</p> -->
+        <p><strong>First Name:</strong> {{ user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Created At:</strong> {{ user.created_at }}</p>
+        <p><strong>Updated At:</strong> {{ user.updated_at }}</p>
+        <div class="d-flex align-items-center justify-content-start">
+            <a href="/edit_user/{{user.id}}">Edit</a>
+            <a class="ml-5" href="/delete_user/{{user.id}}">Delete</a>
+        </div>
+</div>
+</body>
+</html>
