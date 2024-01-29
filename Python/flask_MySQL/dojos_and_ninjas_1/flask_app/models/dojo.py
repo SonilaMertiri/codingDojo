@@ -1,6 +1,8 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import ninja
+
 class Dojo:
+    DB= "dojos_and_ninjas_schema"
     def __init__(self, db_data ):
         self.id = db_data['id']
         self.name = db_data['name']
@@ -8,27 +10,30 @@ class Dojo:
         self.updated_at = db_data['updated_at']
         # We create a list so that later we can add in all the ninjass that are associated with a dojo.
         self.ninjas = []
+
+    #kjo eshte per te marre gjithe dojot
     @classmethod
-    def save (cls, data ):
-        query = "INSERT INTO dojos (name, created_at, updated_at) VALUES (%(name)s, NOW(), NOW());"
-        return connectToMySQL('ninjas').query_db( query, data)
+    def get_all_dojos(cls):
+        query= "SELECT * FROM dojos;"
+        results = connectToMySQL(cls.DB).query_db(query)
+        all_dojos=[]
+        for dojo in results:
+            all_dojos.append(cls(dojo))
+        return all_dojos
     
+    #ketu ben insert nje dojo te ri ne databaze
+    @classmethod
+    def save(cls, data):
+        query = "INSERT INTO dojos (name, created_at, updated_at) VALUES (%(name)s, NOW(), NOW());"
+        return connectToMySQL(cls.DB).query_db( query, data)
 
     @classmethod
     def get_dojo_with_ninjas(cls, data ):
         query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = %(id)s;"
-        results = connectToMySQL('ninjas').query_db(query, data)
+        results = connectToMySQL(cls.DB).query_db(query, data)
         # results will be a list of topping objects with the ninja attached to each row. 
-        dojo = cls(results[0])
-        for row_from_db in results:
-            # Now we parse the ninja data to make instances of ninjas and add them into our list.
-            ninja_data = {
-                "id": row_from_db["ninjas.id"],
-                "first_name": row_from_db["first_name"],
-                "last_name": row_from_db["last_name"],
-                "age": row_from_db["age"],
-                "created_at": row_from_db["ninjas.created_at"],
-                "updated_at": row_from_db["ninjas.updated_at"]
-            }
-            dojo.ninjas.append(ninja.Ninja( ninja_data))
-        return dojo
+        dojos=[]
+        if results:
+            for row in results:
+                dojos.append(row)
+        return dojos
