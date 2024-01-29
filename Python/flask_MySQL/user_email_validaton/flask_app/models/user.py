@@ -61,15 +61,18 @@ class User:
     def validate_user(user):
         is_valid = True # we assume this is true
         if len(user['first_name']) < 3:
-            flash("First name is required and it must be more than 3 characters.")
+            flash("First name is required and it must be more than 3 characters.", 'first_name')
             is_valid = False
         if len(user['last_name']) < 3:
-            flash("Last name is required and it must be more than 3 characters.")
+            flash("Last name is required and it must be more than 3 characters.", 'last_name')
+            is_valid = False
+        if len(user["email"]) <= 0:
+            flash("Email is required.", 'email')
             is_valid = False
         # test whether a field matches the pattern
         if not EMAIL_REGEX.match(user['email']): 
-            flash("Email cannot be blank!", 'email')
-            #we can add different messages by the type of errors we make
-            flash("Invalid email address!")
+            flash("Invalid email address!", 'email')
             is_valid = False
         return is_valid
+    
+            # if len(user["email"]) > 0 and not EMAIL_REGEX.match(user['email']): 
