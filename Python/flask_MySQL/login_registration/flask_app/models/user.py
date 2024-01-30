@@ -36,9 +36,17 @@ class User:
         if not EMAIL_REGEX.match(user['email']): 
             flash("Invalid email address!", 'emailRegister')
             is_valid = False
-        if len(user['password'])<=1:
+
+        if len(user['password']) <= 1:
             flash("Password is required!", 'passwordRegister')
             is_valid = False
+        elif not any(char.isdigit() for char in user['password']):
+            flash("Password must contain at least 1 number!", 'passwordRegister')
+            is_valid = False
+        elif not any(char.isupper() for char in user['password']):
+            flash("Password must contain at least 1 uppercase letter!", 'passwordRegister')
+            is_valid = False
+            
         if len(user['confirm_password'])<=1 or user['confirm_password'] != user['password']:
             flash("Confirm password is incorrect!", 'passwordConfirm')
             is_valid = False
