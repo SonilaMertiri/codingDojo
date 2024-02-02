@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex justify-content-between align-items-center  p-2 bg-dark text-white">
+        <h2 class="ml-4">Welcome</h2>
+        <div>
+            <a class=" btn btn-primary mr-3 " href='/recipes'> back to recipes</a>
+            <a class=" btn btn-primary mr-5 " href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-between align-items-center ">
+        <div>
+            <h4>{{recipe.name}}</h4>
+            <!-- <h6>Posted by:{{recipe.user_id}}</h6> -->
+        </div>
+        <div class="border p-4 m-2">
+            <h6 class="card-text">Description: {{recipe.description}}</h6>
+            <h6 class="card-text">Under 30 minutes? {{recipe.under_30}}</h6>
+            <h6 class="card-text">Instructions: {{recipe.instructions}}</h6>
+            <h6 class="card-text">Date Made: {{recipe.updated_at.strftime('%B %d %Y')}}</h6>
+        </div>
+    </div>
+</body>
+</html>
