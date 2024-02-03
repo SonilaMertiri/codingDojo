@@ -14,23 +14,81 @@
         <a class="text-decoration-none text-white" href="/logout">Logout</a>
     </nav>
     <div class="d-flex justify-content-around align-items-evenly mt-2">
-        <div class="card" style="width: 13rem; height: fit-content;">
-            <img src="../static/images/bts_BOOK.jpg" style="height: 50%;" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <p class="card-text">Author: {{book.author}}</p>
-                <p class="card-text">Description: {{book.description}}</p>
-                <p class="card-text">Number of pages: {{book.nr_of_pages}}</p>
-                <p class="card-text">Price: ${{book.price}}</p>
-                <p class="card-text">Created by: {{book.first_name}} {{book.last_name}}</p>
-                {% if session['user_id']==book.user_id %}
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="/book/edit/{{book.id}}" class="btn btn-primary">Edit</a>
-                        <a href="/book/delete/{{book.id}}" class="btn btn-danger">Delete</a>
+        <div class="col-lg-6 col-md-6">
+            <div class="card" style="width: 13rem; height: fit-content;">
+                <img src="../static/images/bts_BOOK.jpg" style="height: 50%;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">Author: {{book.author}}</p>
+                    <p class="card-text">Description: {{book.description}}</p>
+                    <p class="card-text">Number of pages: {{book.nr_of_pages}}</p>
+                    <p class="card-text">Price: ${{book.price}}</p>
+                    <p class="card-text">Created by: {{book.first_name}} {{book.last_name}}</p>
+                    <p onmouseenter="displayLikes()" onmouseleave="hideLikes()">Likes: {{usersWhoLikes|length}}</p>
+                    <div>
+                        {% if session['user_id'] in usersWhoLikes %}
+                        <a href="/remove/like/{{book.id}}">Unlike</a>
+                        {% else %}
+                        <a href="/add/like/{{book.id}}">Like</a>
+                        {% endif %}
                     </div>
+                    <div class="usersWhoLiked">
+                        {% for user in book.likes %}
+                        <p>{{user.firstName}} {{user.lastName}}</p>
+                        {% endfor %}
+                    </div>
+                    {% if session['user_id']==book.user_id %}
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/book/edit/{{book.id}}" class="btn btn-primary">Edit</a>
+                            <a href="/book/delete/{{book.id}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h4 class="text-center">Add your comment</h4>
+            <form action="/add/comment/{{book.id}}" method="post">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" name="comment" id="comment" cols="20" rows="3" required></textarea>
+                {% with messages = get_flashed_messages(category_filter=["comment"]) %}
+                {% if messages %}
+                    
+                    {% for message in messages %}
+                        <p class="text-danger text-center">{{ message }}</p>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% endwith %}
+                <button class="btn btn-success mt-2">Add</button>
+            </form>
+            <h2 class="text-center">Comments</h2>
+            {% for one_comment in book.comments %}
+            <div class="border border-1 mb-1">
+                <p>{{one_comment.comment}}</p>
+                <p>Writeen by: {{one_comment.first_name}} {{one_comment.last_name}}</p>
+                <p>Created: {{one_comment.created_at.strftime('%Y %m %d')}}</p>
+                {% if one_comment.user_id == session['user_id']%}
+                <a href="/edit/comment/{{one_comment.id}}" class="btn btn-warning">Edit</a>
+                <a href="/delete/comment/{{one_comment.id}}" class="btn btn-danger">Delete</a>
                 {% endif %}
             </div>
+            {% endfor %}
         </div>
     </div>
 </body>
+<script>
+    likesDiv = document.querySelector('.usersWhoLiked')
+    likesDiv.style.display = 'none'
+
+    function displayLikes(){
+        likesDiv = document.querySelector('.usersWhoLiked')
+        likesDiv.style.display = 'block'
+    }
+    function hideLikes(){
+        likesDiv = document.querySelector('.usersWhoLiked')
+        likesDiv.style.display = 'none'
+    }
+
+</script>
 </html>

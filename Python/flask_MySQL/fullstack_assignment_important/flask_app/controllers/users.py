@@ -46,7 +46,7 @@ def loginPage():
         return redirect('/books')
     return render_template('login.html')  #kjo te con te faqja e html te forme per tu loguar
 
-#por qe te bejme funksionalitetin e saj na fduhet nje login method POST si me poshte
+#por qe te bejme funksionalitetin e saj na duhet nje login method POST si me poshte
 @app.route('/login', methods=['POST'])
 def login():
     if 'user_id' in session:

@@ -40,11 +40,13 @@ def view_book(id):
     if 'user_id' not in session:
         return redirect('/')
     data={
-        'id':id
+        'id':id,
+        'book_id': id
     }
     book= Book.get_book_by_id(data)
     if book:
-        return render_template('one_book.html', book=book)
+        usersWhoLikes = Book.get_users_who_liked_by_book_id(data)
+        return render_template('one_book.html', book=book, usersWhoLikes= usersWhoLikes)
     return redirect('/')
 
 @app.route('/book/delete/<int:id>')
@@ -56,6 +58,7 @@ def delete_book(id):
     }
     book= Book.get_book_by_id(data)
     if book['user_id']== session['user_id']:
+        Book.delete_all_book_comments(data)
         Book.deleteBook(data)
     return redirect('/')
 
@@ -94,3 +97,85 @@ def update_book(id):
         Book.update(data)
         return redirect('/book/' +str(id))
     return redirect('/')
+
+@app.route('/add/comment/<int:id>', methods=['POST'])
+def addComment(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    if len(request.form['comment'])<2:
+        flash('The comment should be at least two characters', 'comment')
+        return redirect(request.referrer)
+    data={
+        'comment': request.form['comment'],
+        'user_id': session['user_id'],
+        'book_id': id
+    }
+    Book.add_comment(data)
+    return redirect(request.referrer)
+
+
+@app.route('/edit/comment/<int:id>')
+def editComment(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data={
+        'id':id
+    }
+    commenti=Book.get_comment_by_id(data)
+    if commenti['user_id']== session['user_id']:
+        return render_template('editComment.html', commenti=commenti)
+    return redirect('/')
+
+@app.route('/edit/comment/<int:id>', methods=['POST'])
+def updateComment(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    if len(request.form['comment'])<2:
+        flash('The comment should be at least two characters', 'comment')
+        return redirect(request.referrer)
+    data={
+        'comment': request.form['comment'],
+        'id':id
+    }
+    komenti=Book.get_comment_by_id(data)
+    if komenti['user_id']== session['user_id']:
+        Book.updateComment(data)
+    return redirect('/book/'+ str(komenti['book_id']))
+
+@app.route('/delete/comment/<int:id>')
+def deleteComment(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data={
+        'id':id
+    }
+    komenti=Book.get_comment_by_id(data)
+    if komenti['user_id']== session['user_id']:
+        Book.deleteComment(data)
+    return redirect(request.referrer)
+
+#the routes for likes
+@app.route('/add/like/<int:id>')
+def addLike(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'book_id': id,
+        'user_id': session['user_id']
+    }
+    usersWhoLikes = Book.get_users_who_liked_by_book_id(data)
+    print(usersWhoLikes)
+    if session['user_id'] not in usersWhoLikes:
+        Book.addLike(data)
+    return redirect(request.referrer)
+
+@app.route('/remove/like/<int:id>')
+def removeLike(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'book_id': id,
+        'user_id': session['user_id']
+    }
+    Book.removeLike(data)
+    return redirect(request.referrer)
