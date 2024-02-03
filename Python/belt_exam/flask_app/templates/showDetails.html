@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex justify-content-end align-items-center p-4 m-2">
+        <a class=" btn btn-primary mt-2 " href="/shows">TV Shows</a>
+        <a class=" btn btn-primary ml-2 mt-2" href="/logout">Logout</a>
+    </div>
+    <h2 class="m-4">{{show.title}}</h2>
+    <div class="m-4"> 
+        <h4>Recommendet by:{{user.first_name}}</h4>
+        <div class="border p-4 m-2">
+            <h6 class="card-text"><strong>Network:</strong> {{show.network}}</h6>
+            <h6 class="card-text"><strong>Release Date:</strong> {{show.release_date}}</h6>
+            <h6 class="card-text"><strong>{{user.first_name}}'s Comments:</strong> {{show.comments}}</h6>
+        </div>
+    </div>
+    <div class="d-flex flex-column p-4 m-2">
+        <form action="/add/comment/{{show.id}}" method="post">
+            <label for="comment">Post a comment:</label>
+            <textarea class="form-control" name="comment" id="comment" cols="20" rows="3" required></textarea>
+            {% with messages = get_flashed_messages(category_filter=["comment"]) %}
+            {% if messages %}
+                
+                {% for message in messages %}
+                    <p class="text-danger text-center">{{ message }}</p>
+                {% endfor %}
+                
+            {% endif %}
+        {% endwith %}
+            <button class="btn btn-success mt-2">Add</button>
+        </form>
+        {% for one_comment in show.commentss %}
+            <div class="mb-1 mt-2 border">
+                <p><strong>{{one_comment.first_name}}</strong> at {{one_comment.created_at.strftime('%Y %m %d')}} </p>
+                <p class="ml-2">{{one_comment.comment}}</p>
+                {% if one_comment.user_id == session['user_id']%}
+                    <a href="/delete/comment/{{one_comment.id}}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+    </div>
+</body>
+</html>
